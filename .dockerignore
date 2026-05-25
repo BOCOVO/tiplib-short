@@ -1,0 +1,8 @@
+.next
+node_modules
+public/content
+public/videos
+.env*
+*.md
+.git
+.gitignore
