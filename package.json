@@ -9,11 +9,29 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@google/genai": "^2.6.0",
+    "@heroui/react": "^3.0.5",
+    "@heroui/styles": "^3.0.5",
+    "@remotion/animation-utils": "4.0.465",
+    "@remotion/cli": "4.0.465",
+    "@remotion/google-fonts": "4.0.465",
+    "@remotion/layout-utils": "4.0.465",
+    "@remotion/media": "4.0.465",
+    "@remotion/tailwind-v4": "4.0.465",
+    "@remotion/zod-types": "4.0.465",
+    "groq-sdk": "^1.2.0",
+    "mime": "^4.1.0",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remotion": "4.0.465",
+    "tailwindcss": "4.0.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.465",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/mime": "^4.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
