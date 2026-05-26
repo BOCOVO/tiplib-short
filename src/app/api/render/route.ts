@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     console.log("[render] stdout:", stdout);
     if (stderr) console.warn("[render] stderr:", stderr);
 
-    return Response.json({ videoUrl: `/videos/${sessionId}.mp4` });
+    return Response.json({ videoUrl: `/api/video/${sessionId}` });
   } catch (err) {
     console.error("[render] error:", err);
     const message = err instanceof Error ? err.message : "Render failed";
