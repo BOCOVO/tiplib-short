@@ -260,7 +260,7 @@ export default function PostForm() {
   const missingImages = imagePrompts && images && images.length < imagePrompts.length;
 
   return (
-    <div className="min-h-screen flex flex-col justify-start sm:justify-center px-4 py-8 sm:py-12">
+    <div className="min-h-screen p-4 flex flex-col justify-start sm:justify-center px-4 py-8 sm:py-12">
       <div className="w-full max-w-2xl mx-auto flex flex-col gap-6 sm:gap-8">
 
         {/* Step indicator */}
