@@ -260,31 +260,31 @@ export default function PostForm() {
   const missingImages = imagePrompts && images && images.length < imagePrompts.length;
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-2xl flex flex-col gap-8">
+    <div className="min-h-screen flex flex-col justify-start sm:justify-center px-4 py-8 sm:py-12">
+      <div className="w-full max-w-2xl mx-auto flex flex-col gap-6 sm:gap-8">
 
         {/* Step indicator */}
         <div className="flex items-center gap-0">
           {STEPS.map((label, i) => (
             <div key={i} className="flex items-center flex-1 last:flex-none">
               <div className="flex flex-col items-center gap-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold border-2 transition-colors ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-semibold border-2 transition-colors ${
                   i < step ? "bg-current border-current text-white"
                   : i === step ? "border-current text-current"
                   : "border-gray-300 text-gray-400"
                 }`}>
                   {i < step ? (
-                    <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor">
                       <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z" />
                     </svg>
                   ) : i + 1}
                 </div>
-                <span className={`text-xs font-medium ${i <= step ? "text-current" : "text-gray-400"}`}>
+                <span className={`hidden sm:block text-xs font-medium ${i <= step ? "text-current" : "text-gray-400"}`}>
                   {label}
                 </span>
               </div>
               {i < STEPS.length - 1 && (
-                <div className={`flex-1 h-0.5 mb-5 mx-2 transition-colors ${i < step ? "bg-current" : "bg-gray-200"}`} />
+                <div className={`flex-1 h-0.5 sm:mb-5 mx-1 sm:mx-2 transition-colors ${i < step ? "bg-current" : "bg-gray-200"}`} />
               )}
             </div>
           ))}
@@ -339,7 +339,7 @@ export default function PostForm() {
               )}
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" onPress={() => setStep(0)}>Back</Button>
+              <Button variant="outline" className="shrink-0" onPress={() => setStep(0)}>Back</Button>
               <Button fullWidth isDisabled={isLoading || !groups || !!error} onPress={() => setStep(2)}>
                 Next
               </Button>
@@ -366,7 +366,7 @@ export default function PostForm() {
               ))}
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" onPress={() => setStep(1)}>Back</Button>
+              <Button variant="outline" className="shrink-0" onPress={() => setStep(1)}>Back</Button>
               <Button fullWidth isDisabled={!imagePrompts || !!error} onPress={() => setStep(3)}>
                 Next
               </Button>
@@ -398,7 +398,7 @@ export default function PostForm() {
               })}
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" onPress={() => setStep(2)}>Back</Button>
+              <Button variant="outline" className="shrink-0" onPress={() => setStep(2)}>Back</Button>
               <Button fullWidth isDisabled={!images || !!error} onPress={() => setStep(4)}>Next</Button>
             </div>
           </div>
@@ -417,7 +417,7 @@ export default function PostForm() {
                 <Button variant="outline" onPress={retryImages}>Retry missing images</Button>
               </div>
             )}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {images && groups && images.map((img) => {
                 const group = groups[img.groupIndex];
                 return (
@@ -436,7 +436,7 @@ export default function PostForm() {
               })}
             </div>
             <div className="flex gap-2">
-              <Button variant="outline" onPress={() => setStep(3)}>Back</Button>
+              <Button variant="outline" className="shrink-0" onPress={() => setStep(3)}>Back</Button>
               <Button fullWidth isDisabled={isLoading || !!missingImages} onPress={() => { setStep(5); render(); }}>Render video</Button>
             </div>
           </div>
@@ -451,7 +451,7 @@ export default function PostForm() {
               {videoUrl && (
                 <div className="flex flex-col gap-2">
                   <Label>Your video is ready</Label>
-                  <video src={videoUrl} controls className="w-full rounded-lg" />
+                  <video src={videoUrl} controls className="w-full max-h-[70vh] rounded-lg mx-auto" />
                   <a
                     href={videoUrl}
                     download
